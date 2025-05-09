@@ -1,5 +1,4 @@
 import { useCertificates } from "@/api/api";
-import React from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { LoadingSpinner } from "./LoadingSpinner";
 import CertificateCard from "./CertificateCard";
@@ -44,6 +43,8 @@ const CertificateList = () => {
             date={certificate.date}
             organization={certificate.organization}
             skills={certificate.skills}
+            link={certificate.link}
+            description={certificate.description}
           />
         ))}
       </div>
