@@ -87,7 +87,19 @@ const ContactSection = () => {
                     </motion.div>
                     <div>
                       <p className="font-medium">{item.title}</p>
-                      <p className="text-muted-foreground">{item.value}</p>
+
+                      {item.title == "Email" ? (
+                        <a
+                          href="mailto:vrajpanchal0209@gmail.com"
+                          className="text-muted-foreground"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <a href={item.value} className="text-muted-foreground">
+                          {item.value}
+                        </a>
+                      )}
                     </div>
                   </motion.div>
                 ))}

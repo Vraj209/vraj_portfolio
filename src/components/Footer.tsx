@@ -1,3 +1,7 @@
+import { Socials_links } from "@/lib/Social_Links";
+import { Button } from "./ui/button";
+import { motion } from "motion/react";
+
 const Footer = () => {
   return (
     <footer className="bg-background border-t py-6">
@@ -8,32 +12,34 @@ const Footer = () => {
         </p>
 
         {/* Social Links */}
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary"
-          >
-            Twitter
-          </a>
-        </div>
+        <motion.div
+          className="flex gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          {Socials_links.map((link, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.8 + index * 0.1,
+                type: "spring",
+                stiffness: 200,
+              }}
+            >
+              <a href={link.link} target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="icon">
+                  <link.icon className="h-5 w-5" />
+                  <span className="sr-only">Social Link</span>
+                </Button>
+              </a>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </footer>
   );

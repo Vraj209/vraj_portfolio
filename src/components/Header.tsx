@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Download } from "lucide-react";
 import { iconVariants } from "@/motion/iconVariants";
 import { Link } from "react-router";
+import { downloadButtonHandler } from "@/lib/Resume_Link";
 
 const Header = () => {
   const { scrollYProgress } = useScroll();
@@ -59,6 +60,7 @@ const Header = () => {
             variant="outline"
             size="sm"
             className="hidden md:flex gap-2 lg:gap-4 lg:px-6"
+            onClick={downloadButtonHandler}
           >
             <motion.div variants={iconVariants}>
               <Download className="h-4 w-4 lg:h-5 lg:w-5" />

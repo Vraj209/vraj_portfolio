@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
-import { Button} from "./ui/button";
-import { Download, Mail } from "lucide-react";
+import { Button } from "./ui/button";
+import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { iconVariants } from "@/motion/iconVariants";
 import { buttonVariants } from "@/motion/buttonVariants";
+import { downloadButtonHandler } from "@/lib/Resume_Link";
+import { Socials_links } from "@/lib/Social_Links";
 const HeroSection = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -48,7 +50,12 @@ const HeroSection = () => {
             whileTap="tap"
             variants={buttonVariants}
           >
-            <Button className="gap-2">
+            <Button
+              className="gap-2"
+              onClick={() => {
+                window.location.href = "mailto:vrajpanchal0209@gmail.com";
+              }}
+            >
               <motion.div variants={iconVariants}>
                 <Mail className="h-4 w-4" />
               </motion.div>
@@ -60,7 +67,11 @@ const HeroSection = () => {
             whileTap="tap"
             variants={buttonVariants}
           >
-            <Button variant="outline" className="gap-2">
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={downloadButtonHandler}
+            >
               <motion.div variants={iconVariants}>
                 <Download className="h-4 w-4" />
               </motion.div>
@@ -74,7 +85,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          {/* {[Github, Linkedin, Twitter].map((Icon, index) => (
+          {Socials_links.map((link, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.2, rotate: 5 }}
@@ -87,14 +98,14 @@ const HeroSection = () => {
                 stiffness: 200,
               }}
             >
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={link.link} target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon">
-                  <Icon className="h-5 w-5" />
+                  <link.icon className="h-5 w-5" />
                   <span className="sr-only">Social Link</span>
                 </Button>
               </a>
             </motion.div>
-          ))} */}
+          ))}
         </motion.div>
       </motion.div>
       <motion.div
