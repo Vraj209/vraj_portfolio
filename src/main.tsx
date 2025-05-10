@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { createBrowserRouter, RouterProvider } from "react-router";
+import ProjectDescription from "./components/ProjectDescription.tsx";
+import CertificateDescription from "./components/CertificateDescription.tsx";
 
 const queryClient = new QueryClient({
   // defaultOptions: {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/projects/:id",
+    element: <ProjectDescription />,
+  },
+  {
+    path: "/certificates/:id",
+    element: <CertificateDescription />,
   },
 ]);
 createRoot(document.getElementById("root")!).render(
