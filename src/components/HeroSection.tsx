@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Download, Mail, } from "lucide-react";
 import { iconVariants } from "@/motion/iconVariants";
 import { buttonVariants } from "@/motion/buttonVariants";
 import { downloadButtonHandler } from "@/lib/Resume_Link";
